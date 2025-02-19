@@ -146,6 +146,383 @@ button {
     color: #555;
 }
 
+.image-gallery {
+    height: 500px; /* Adjust as needed to fit 5 images */
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    padding: 20px;
+}
+
+.image-gallery figure {
+    margin: 0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    scroll-snap-align: start;
+    height: 100px; /* Adjust as needed to fit 5 images */
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(5px); }
+    50% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+    100% { transform: translateX(0); }
+}
+
+svg {
+  font-family: 'Pacifico', cursive;
+  display: block;
+  margin: 20px auto 0;
+}
+svg text {
+  stroke: #5DADE2;
+  stroke-width: 1;
+  fill: #1B4F72;
+  filter: url(#f1);
+  font-size: 72px;
+  letter-spacing: 3px;
+  text-shadow: 6px 6px 0px rgba(0,0,0,0.4);
+  animation: write 5s forwards;
+}
+@keyframes write {
+  0% {
+    stroke-dasharray: 0 431;
+    stroke-dashoffset: 431;
+  }
+  100% {
+    stroke-dasharray: 431 0;
+  }
+}
+/* Updated styles.css */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f4f4;
+}
+
+.container {
+    margin-top: 50px;
+}
+
+.lockpad {
+    display: inline-block;
+    padding: 20px;
+    background: linear-gradient(180deg, gold, darkgoldenrod);
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    position: relative;
+    width: 250px; /* Set a fixed width for proper alignment */
+    height: 350px; /* Reduce height to avoid excessive stretching */
+    margin-top: 80px; /* Add space between title and lockpad */
+    transition: background-color 0.3s ease; /* For flashing effect */
+}
+
+.flash-green {
+    background-color: lightgreen;
+}
+
+.flash-red {
+    background-color: lightcoral;
+}
+
+.shackle {
+    width: 160px; /* Wider shackle */
+    height: 70px;
+    background: #888;
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50px 50px 0 0;
+    box-shadow: 0 -3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.locked {
+    width: 60px;
+    height: 60px;
+    background: rgb(255, 0, 0);
+    border-radius: 30px;
+    position: absolute;
+    top: 30px; /* Lowered so it doesn't overlap text */
+    left: 50%;
+    transform: translateX(-50%);
+    transition: transform 0.3s ease-in-out;
+}
+
+.unlocked {
+    transform: rotate(45deg);
+    background: #00ff26;
+}
+
+.indicator {
+    width: 15px;
+    height: 15px;
+    background: gray;
+    border-radius: 50%;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    transition: background 0.3s;
+}
+
+.correct .indicator {
+    background: green;
+}
+
+.incorrect .indicator {
+    background: red;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    justify-content: center;
+    margin-top: 80px; /* Adjusted to fit correctly */
+}
+
+.tile {
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    font-weight: bold;
+    background: white;
+    color: black;
+    border: 2px solid #555;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.shake {
+    animation: shake 0.3s;
+}
+
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.image-gallery figure {
+    margin: 0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.image-gallery figure:hover {
+    transform: scale(1.05);
+}
+
+.image-gallery img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.image-gallery figcaption {
+    padding: 10px;
+    text-align: center;
+    font-style: italic;
+    color: #555;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(5px); }
+    50% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+    100% { transform: translateX(0); }
+}
+
+svg {
+  font-family: 'Pacifico', cursive;
+  display: block;
+  margin: 20px auto 0;
+}
+svg text {
+  stroke: #5DADE2;
+  stroke-width: 1;
+  fill: #1B4F72;
+  filter: url(#f1);
+  font-size: 72px;
+  letter-spacing: 3px;
+  text-shadow: 6px 6px 0px rgba(0,0,0,0.4);
+  animation: write 5s forwards;
+}
+@keyframes write {
+  0% {
+    stroke-dasharray: 0 431;
+    stroke-dashoffset: 431;
+  }
+  100% {
+    stroke-dasharray: 431 0;
+  }
+}
+/* Updated styles.css */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f4f4;
+}
+
+.container {
+    margin-top: 50px;
+}
+
+.lockpad {
+    display: inline-block;
+    padding: 20px;
+    background: linear-gradient(180deg, gold, darkgoldenrod);
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    position: relative;
+    width: 250px; /* Set a fixed width for proper alignment */
+    height: 350px; /* Reduce height to avoid excessive stretching */
+    margin-top: 80px; /* Add space between title and lockpad */
+    transition: background-color 0.3s ease; /* For flashing effect */
+}
+
+.flash-green {
+    background-color: lightgreen;
+}
+
+.flash-red {
+    background-color: lightcoral;
+}
+
+.shackle {
+    width: 160px; /* Wider shackle */
+    height: 70px;
+    background: #888;
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50px 50px 0 0;
+    box-shadow: 0 -3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.locked {
+    width: 60px;
+    height: 60px;
+    background: rgb(255, 0, 0);
+    border-radius: 30px;
+    position: absolute;
+    top: 30px; /* Lowered so it doesn't overlap text */
+    left: 50%;
+    transform: translateX(-50%);
+    transition: transform 0.3s ease-in-out;
+}
+
+.unlocked {
+    transform: rotate(45deg);
+    background: #00ff26;
+}
+
+.indicator {
+    width: 15px;
+    height: 15px;
+    background: gray;
+    border-radius: 50%;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    transition: background 0.3s;
+}
+
+.correct .indicator {
+    background: green;
+}
+
+.incorrect .indicator {
+    background: red;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    justify-content: center;
+    margin-top: 80px; /* Adjusted to fit correctly */
+}
+
+.tile {
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    font-weight: bold;
+    background: white;
+    color: black;
+    border: 2px solid #555;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.shake {
+    animation: shake 0.3s;
+}
+
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.image-gallery figure {
+    margin: 0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.image-gallery figure:hover {
+    transform: scale(1.05);
+}
+
+.image-gallery img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.image-gallery figcaption {
+    padding: 10px;
+    text-align: center;
+    font-style: italic;
+    color: #555;
+}
+
 @keyframes shake {
     0% { transform: translateX(0); }
     25% { transform: translateX(5px); }
