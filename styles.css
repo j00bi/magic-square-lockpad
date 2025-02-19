@@ -44,10 +44,13 @@ body {
     height: 60px;
     font-size: 24px;
     font-weight: bold;
-    background: #fff;
+    background: white;  /* Ensure a contrasting background */
+    color: black;       /* Make numbers visible */
     border: 2px solid #555;
     border-radius: 5px;
     cursor: pointer;
+    text-align: center;
+    line-height: 60px;  /* Center text */
 }
 
 button {
