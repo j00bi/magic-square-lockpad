@@ -19,15 +19,29 @@ body {
 }
 
 .shackle {
-    width: 30px;
-    height: 60px;
+    width: 100px;
+    height: 50px;
     background: #888;
     position: absolute;
-    top: -50px;
+    top: -40px;
     left: 50%;
-    margin-left: -15px;
-    border-radius: 15px 15px 0 0;
+    margin-left: -50px;
+    border-radius: 50px 50px 0 0;
     box-shadow: 0 -3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.locked {
+    width: 50px;
+    height: 50px;
+    background: silver;
+    border-radius: 25px;
+    margin: 30px auto 10px; /* Lowering the lock position */
+    transition: transform 0.3s ease-in-out;
+}
+
+.unlocked {
+    transform: rotate(45deg);
+    background: #ccc;
 }
 
 .indicator {
