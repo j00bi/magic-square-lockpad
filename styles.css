@@ -18,6 +18,16 @@ body {
     position: relative;
     width: 250px; /* Set a fixed width for proper alignment */
     height: 350px; /* Reduce height to avoid excessive stretching */
+    margin-top: 80px; /* Add space between title and lockpad */
+    transition: background-color 0.3s ease; /* For flashing effect */
+}
+
+.flash-green {
+    background-color: lightgreen;
+}
+
+.flash-red {
+    background-color: lightcoral;
 }
 
 .shackle {
