@@ -164,15 +164,25 @@ svg {
   margin: 20px auto 0;
 }
 svg text {
-  stroke: #5DADE2;
+  stroke: black;
   stroke-width: 1;
   fill: #1B4F72;
   filter: url(#f1);
   font-size: 40px;
   letter-spacing: 3px;
   text-shadow: 3px 3px 0px rgba(0,0,0,0.4);
-  animation: write 5s forwards;
-  color: black;
+  color: #1B4F72;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: dash 5s linear alternate infinite, write 5s forwards;
+}
+@keyframes dash {
+  from {
+    stroke-dashoffset: 822;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
 }
 @keyframes write {
   0% {
