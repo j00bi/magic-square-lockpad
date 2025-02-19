@@ -1,7 +1,8 @@
 const magicSquareEasy = [8, 1, 6, 3, 5, 7, 4, 9, 2];
+const magicSquareMedium = [5, 3, 4, 6, 2, 7, 9, 1, 8];
 const magicSquareHard = [2, 7, 6, 9, 5, 1, 4, 3, 8];
 let userGrid = new Array(9).fill(null);
-let difficulty = sessionStorage.getItem('difficulty') || 'easy';
+let difficulty = localStorage.getItem('difficulty') || 'easy';
 
 document.getElementById('difficulty-label').innerText = `Level: ${capitalize(difficulty)}`;
 
@@ -18,12 +19,19 @@ document.querySelectorAll('.tile').forEach((tile, index) => {
 });
 
 document.getElementById('unlock-btn').addEventListener('click', () => {
-    let solution = difficulty === 'hard' ? magicSquareHard : magicSquareEasy;
+    let difficulty = localStorage.getItem('difficulty') || 'easy';
+    let solution;
+    if (difficulty === 'easy') solution = magicSquareEasy;
+    else if (difficulty === 'medium') solution = magicSquareMedium;
+    else if (difficulty === 'hard') solution = magicSquareHard;
+    else solution = magicSquareEasy;
+    
     if (isValidMagicSquare(userGrid, solution)) {
         document.getElementById('lock').classList.add('unlocked');
         setTimeout(() => {
-            if (sessionStorage.getItem('firstTime') === null) {
-                sessionStorage.setItem('firstTime', 'done');
+            if (localStorage.getItem('firstTime') === null) {
+                localStorage.setItem('firstTime', 'done');
+                localStorage.setItem('difficulty', 'easy'); // Reset difficulty
                 window.location.href = 'birthday.html';
             } else {
                 alert('Unlocked! Try the harder level.');
@@ -33,6 +41,8 @@ document.getElementById('unlock-btn').addEventListener('click', () => {
     } else {
         document.getElementById('message').innerText = "Incorrect! Try again.";
         shakeLock();
+        document.getElementById('lock').classList.add('incorrect');
+        setTimeout(() => document.getElementById('lock').classList.remove('incorrect'), 300);
     }
 });
 
@@ -48,22 +58,39 @@ function shakeLock() {
 }
 
 function nextDifficulty() {
-    if (difficulty === 'easy') sessionStorage.setItem('difficulty', 'medium');
-    else if (difficulty === 'medium') sessionStorage.setItem('difficulty', 'hard');
-    else if (difficulty === 'hard') sessionStorage.setItem('difficulty', 'extreme');
+    let currentDifficulty = localStorage.getItem('difficulty') || 'easy';
+    let nextDifficulty;
+    if (currentDifficulty === 'easy') nextDifficulty = 'medium';
+    else if (currentDifficulty === 'medium') nextDifficulty = 'hard';
+    else nextDifficulty = 'easy'; // Loop back to easy after hard
+    localStorage.setItem('difficulty', nextDifficulty);
     window.location.reload();
 }
 
 function setupGrid(level) {
-    const tiles = document.querySelectorAll('.tile');
+    let tiles = document.querySelectorAll('.tile');
+    let solution;
     if (level === 'easy') {
+        solution = magicSquareEasy;
         tiles[0].innerText = '8';
         tiles[4].innerText = '5';
         tiles[8].innerText = '2';
         userGrid[0] = 8;
         userGrid[4] = 5;
         userGrid[8] = 2;
+        for (let i = 0; i < tiles.length; i++) {
+            if (tiles[i].innerText === '') {
+                tiles[i].innerText = '?';
+            }
+        }
+    } else if (level === 'medium') {
+        solution = magicSquareMedium;
+        tiles.forEach(tile => tile.innerText = '?');
+    } else if (level === 'hard') {
+        solution = magicSquareHard;
+        tiles.forEach(tile => tile.innerText = '?');
     } else {
+        solution = magicSquareEasy;
         tiles.forEach(tile => tile.innerText = '?');
     }
 }
