@@ -8,8 +8,8 @@ document.querySelectorAll('.tile').forEach((tile, index) => {
     tile.addEventListener('click', () => {
         let current = parseInt(tile.innerText) || 0;
         let next = (current % 9) + 1;
-        tile.innerText = next;
-        userGrid[index] = next;
+        tile.innerText = 1;
+        userGrid[index] = 1;
     });
 });
 
