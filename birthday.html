@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="birthday-page">
+    <h1>🎉 Happy Birthday! 🎉</h1>
+    <p>Congratulations on unlocking the surprise!</p>
+    <button onclick="window.location.href='index.html'">Replay</button>
+    <button onclick="increaseDifficulty()">Make It Harder</button>
+    <button onclick="extremeMode()">Extreme Mode</button>
+</body>
+<script>
+    function increaseDifficulty() {
+        sessionStorage.setItem('difficulty', 'next');
+        window.location.href = 'index.html';
+    }
+    function extremeMode() {
+        sessionStorage.setItem('difficulty', 'extreme');
+        window.location.href = 'index.html';
+    }
+</script>
+</html>

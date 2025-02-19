@@ -1,0 +1,78 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f4f4;
+}
+
+.container {
+    margin-top: 50px;
+}
+
+.lockpad {
+    display: inline-block;
+    padding: 20px;
+    background: linear-gradient(180deg, gold, darkgoldenrod);
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+
+.locked {
+    width: 50px;
+    height: 50px;
+    background: silver;
+    border-radius: 25px;
+    margin: 10px auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+.unlocked {
+    transform: rotate(45deg);
+    background: #ccc;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 60px);
+    grid-gap: 10px;
+    margin: 20px auto;
+    justify-content: center;
+}
+
+.tile {
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    font-weight: bold;
+    background: #fff;
+    border: 2px solid #555;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    background: darkgoldenrod;
+    color: white;
+    border-radius: 5px;
+}
+
+.birthday-page {
+    background: radial-gradient(circle, #ffcc00, #ff6600);
+    color: white;
+    padding-top: 100px;
+}
+
+.birthday-page h1 {
+    font-size: 48px;
+    animation: glow 1s infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 5px yellow; }
+    to { text-shadow: 0 0 20px white; }
+}
