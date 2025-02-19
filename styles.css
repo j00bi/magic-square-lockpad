@@ -178,6 +178,11 @@ svg text {
   font-family: 'Norican', cursive;
   font-weight: normal;
 }
+
+.move-up {
+    margin-top: -20px;
+}
+
 @keyframes dash {
   from {
     stroke-dashoffset: 822;
