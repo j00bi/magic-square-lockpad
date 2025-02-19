@@ -2,20 +2,29 @@ const magicSquare = [8, 1, 6, 3, 5, 7, 4, 9, 2];
 let userGrid = new Array(9).fill(null);
 let difficulty = sessionStorage.getItem('difficulty') || 'easy';
 
+// Display difficulty level
 document.getElementById('difficulty-label').innerText = `Level: ${capitalize(difficulty)}`;
 
+// Tile click event to cycle numbers from 1 to 9
 document.querySelectorAll('.tile').forEach((tile, index) => {
+    tile.innerText = "1";  // Default to 1
+    tile.dataset.value = 1; // Store value internally
+    userGrid[index] = 1; // Ensure the grid updates
+
     tile.addEventListener('click', () => {
-        let current = parseInt(tile.innerText) || 0;
-        let next = (current % 9) + 1;
-        tile.innerText = 1;
-        userGrid[index] = 1;
+        let current = parseInt(tile.dataset.value, 10);
+        let next = (current % 9) + 1;  // Cycle 1-9
+        tile.innerText = next;
+        tile.dataset.value = next;
+        userGrid[index] = next;
     });
 });
 
+// Unlock button logic
 document.getElementById('unlock-btn').addEventListener('click', () => {
     if (isValidMagicSquare(userGrid)) {
         document.getElementById('lock').classList.add('unlocked');
+
         setTimeout(() => {
             if (sessionStorage.getItem('firstTime') === null) {
                 sessionStorage.setItem('firstTime', 'done');
@@ -31,6 +40,7 @@ document.getElementById('unlock-btn').addEventListener('click', () => {
     }
 });
 
+// Function to check if the user input forms a magic square
 function isValidMagicSquare(grid) {
     if (grid.includes(null)) return false;
     let sum = 15;
@@ -46,6 +56,7 @@ function isValidMagicSquare(grid) {
     );
 }
 
+// Shake animation for incorrect attempts
 function shakeLock() {
     let lock = document.getElementById('lock');
     lock.style.transform = "translateX(5px)";
@@ -53,6 +64,7 @@ function shakeLock() {
     setTimeout(() => lock.style.transform = "translateX(0)", 200);
 }
 
+// Increase difficulty on retry
 function nextDifficulty() {
     if (difficulty === 'easy') sessionStorage.setItem('difficulty', 'normal');
     else if (difficulty === 'normal') sessionStorage.setItem('difficulty', 'hard');
@@ -60,6 +72,7 @@ function nextDifficulty() {
     window.location.reload();
 }
 
+// Capitalize function for text formatting
 function capitalize(word) {
     return word.charAt(0).toUpperCase() + word.slice(1);
 }
