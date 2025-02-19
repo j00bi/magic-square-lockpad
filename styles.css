@@ -159,7 +159,7 @@ button {
 }
 
 svg {
-  font-family: 'Pacifico', cursive;
+  font-family: 'Norican', cursive;
   display: block;
   margin: 20px auto 0;
 }
@@ -175,8 +175,8 @@ svg text {
   stroke-dasharray: 1000;
   stroke-dashoffset: 1000;
   animation: dash 5s linear alternate infinite, write 5s forwards;
-  font-family: 'Pacifico', cursive;
-  font-weight: bold;
+  font-family: 'Norican', cursive;
+  font-weight: normal;
 }
 @keyframes dash {
   from {
