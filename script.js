@@ -7,16 +7,16 @@ document.getElementById('difficulty-label').innerText = `Level: ${capitalize(dif
 
 // Tile click event to cycle numbers from 1 to 9
 document.querySelectorAll('.tile').forEach((tile, index) => {
-    tile.innerText = "1";  // Default to 1
+    tile.innerText = "1";  // Default value
     tile.dataset.value = 1; // Store value internally
-    userGrid[index] = 1; // Ensure the grid updates
+    userGrid[index] = 1; // Initialize user grid
 
     tile.addEventListener('click', () => {
         let current = parseInt(tile.dataset.value, 10);
-        let next = (current % 9) + 1;  // Cycle 1-9
+        let next = (current % 9) + 1;  // Cycle from 1 to 9
         tile.innerText = next;
-        tile.dataset.value = next;
-        userGrid[index] = next;
+        tile.dataset.value = next;  // Update dataset
+        userGrid[index] = next;  // Update user grid
     });
 });
 
