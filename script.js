@@ -20,23 +20,13 @@ document.getElementById('unlock-btn').addEventListener('click', () => {
         lockpad.classList.add('flash-green');
         document.getElementById('lock').classList.add('unlocked', 'correct');
         document.getElementById('indicator').classList.add('correct');
-        setTimeout(() => {
-            lockpad.classList.remove('flash-green');
-            document.getElementById('lock').classList.remove('correct');
-            document.getElementById('indicator').classList.remove('correct');
-            window.location.href = 'birthday.html';
-        }, 1000);
+        window.location.href = 'birthday.html';
     } else {
         lockpad.classList.add('flash-red');
         document.getElementById('message').innerText = "Incorrect! Try again.";
         shakeLock();
         document.getElementById('lock').classList.add('incorrect');
         document.getElementById('indicator').classList.add('incorrect');
-        setTimeout(() => {
-            lockpad.classList.remove('flash-red');
-            document.getElementById('lock').classList.remove('incorrect');
-            document.getElementById('indicator').classList.remove('incorrect');
-        }, 300);
     }
 });
 
