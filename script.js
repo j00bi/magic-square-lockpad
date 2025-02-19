@@ -3,7 +3,6 @@ let userGrid = new Array(9).fill(null);
 
 document.getElementById('difficulty-label').innerText = `Level: Magic`;
 
-// Set up initial grid
 setupGrid();
 
 document.querySelectorAll('.tile').forEach((tile, index) => {
@@ -17,22 +16,22 @@ document.querySelectorAll('.tile').forEach((tile, index) => {
 
 document.getElementById('unlock-btn').addEventListener('click', () => {
     if (isValidMagicSquare(userGrid, magicSquare)) {
-        document.getElementById('lock').classList.add('unlocked');
-        document.getElementById('lock').classList.add('correct');
+        document.getElementById('lock').classList.add('unlocked', 'correct');
+        document.getElementById('indicator').classList.add('correct');
         setTimeout(() => {
             document.getElementById('lock').classList.remove('correct');
-            if (localStorage.getItem('firstTime') === null) {
-                localStorage.setItem('firstTime', 'done');
-                window.location.href = 'birthday.html';
-            } else {
-                window.location.href = 'birthday.html';
-            }
+            document.getElementById('indicator').classList.remove('correct');
+            window.location.href = 'birthday.html';
         }, 1000);
     } else {
         document.getElementById('message').innerText = "Incorrect! Try again.";
         shakeLock();
         document.getElementById('lock').classList.add('incorrect');
-        setTimeout(() => document.getElementById('lock').classList.remove('incorrect'), 300);
+        document.getElementById('indicator').classList.add('incorrect');
+        setTimeout(() => {
+            document.getElementById('lock').classList.remove('incorrect');
+            document.getElementById('indicator').classList.remove('incorrect');
+        }, 300);
     }
 });
 
@@ -60,8 +59,4 @@ function setupGrid() {
             tiles[i].innerText = '?';
         }
     }
-}
-
-function capitalize(word) {
-    return word.charAt(0).toUpperCase() + word.slice(1);
 }

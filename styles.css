@@ -1,3 +1,4 @@
+/* Updated styles.css */
 body {
     font-family: Arial, sans-serif;
     text-align: center;
@@ -17,60 +18,6 @@ body {
     position: relative;
 }
 
-.locked {
-    width: 50px;
-    height: 50px;
-    background: silver;
-    border-radius: 25px;
-    margin: 10px auto;
-    transition: transform 0.3s ease-in-out;
-}
-
-.unlocked {
-    transform: rotate(45deg);
-    background: #ccc;
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(3, 60px);
-    grid-gap: 10px;
-    margin: 20px auto;
-    justify-content: center;
-}
-
-.tile {
-    width: 60px;
-    height: 60px;
-    font-size: 24px;
-    font-weight: bold;
-    background: white;  /* Ensure a contrasting background */
-    color: black;       /* Make numbers visible */
-    border: 2px solid #555;
-    border-radius: 5px;
-    cursor: pointer;
-    text-align: center;
-    line-height: 60px;  /* Center text */
-}
-
-button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-}
-
-.incorrect {
-    background: red;
-    transition: background 0.3s ease-in-out;
-}
-
-.correct {
-    background: green;
-    transition: background 0.3s ease-in-out;
-}
-
 .shackle {
     width: 30px;
     height: 60px;
@@ -83,31 +30,46 @@ button {
     box-shadow: 0 -3px 6px rgba(0, 0, 0, 0.3);
 }
 
-.unlocked .shackle {
-    animation: shackle-release 0.5s forwards;
+.indicator {
+    width: 15px;
+    height: 15px;
+    background: gray;
+    border-radius: 50%;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    transition: background 0.3s;
 }
 
-@keyframes shackle-release {
-    0% {
-        transform: translateY(0);
-    }
-    100% {
-        transform: translateY(50px);
-    }
+.correct .indicator {
+    background: green;
 }
 
-.birthday-page {
-    background: radial-gradient(circle, #ffcc00, #ff6600);
-    color: white;
-    padding-top: 100px;
+.incorrect .indicator {
+    background: red;
 }
 
-.birthday-page h1 {
-    font-size: 48px;
-    animation: glow 1s infinite alternate;
+.tile {
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    font-weight: bold;
+    background: white;
+    color: black;
+    border: 2px solid #555;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    line-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-@keyframes glow {
-    from { text-shadow: 0 0 5px yellow; }
-    to { text-shadow: 0 0 20px white; }
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
 }
