@@ -1,7 +1,6 @@
 const magicSquare = [8, 1, 6, 3, 5, 7, 4, 9, 2];
 let userGrid = new Array(9).fill(null);
 
-document.getElementById('difficulty-label').innerText = `Level: Magic`;
 
 setupGrid();
 
@@ -27,6 +26,9 @@ document.getElementById('unlock-btn').addEventListener('click', () => {
         shakeLock();
         document.getElementById('lock').classList.add('incorrect');
         document.getElementById('indicator').classList.add('incorrect');
+        setTimeout(() => {
+            document.getElementById('message').innerText = "";
+        }, 2000);
     }
 });
 
