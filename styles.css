@@ -180,7 +180,13 @@ svg text {
 }
 
 .move-up {
-    margin-top: -20px;
+    margin-top: 30px;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.birthday-svg {
+    margin-bottom: -100px;
 }
 
 @keyframes dash {
