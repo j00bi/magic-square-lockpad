@@ -166,15 +166,15 @@ svg {
 svg text {
   stroke: black;
   stroke-width: 1;
-  fill: #1B4F72;
+  fill: #0d3957;
   filter: url(#f1);
-  font-size: 40px;
+  font-size: 25px;
   letter-spacing: 3px;
   text-shadow: 3px 3px 0px rgba(0,0,0,0.4);
   color: #1B4F72;
   stroke-dasharray: 1000;
   stroke-dashoffset: 1000;
-  animation: dash 5s linear alternate infinite, write 5s forwards;
+  animation: dash 6s linear alternate infinite, write 5s forwards;
   font-family: 'Norican', cursive;
   font-weight: normal;
 }
