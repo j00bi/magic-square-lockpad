@@ -16,26 +16,31 @@ body {
     border-radius: 15px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     position: relative;
+    width: 250px; /* Set a fixed width for proper alignment */
+    height: 350px; /* Reduce height to avoid excessive stretching */
 }
 
 .shackle {
-    width: 100px;
-    height: 50px;
+    width: 160px; /* Wider shackle */
+    height: 70px;
     background: #888;
     position: absolute;
-    top: -40px;
+    top: -50px;
     left: 50%;
-    margin-left: -50px;
+    transform: translateX(-50%);
     border-radius: 50px 50px 0 0;
     box-shadow: 0 -3px 6px rgba(0, 0, 0, 0.3);
 }
 
 .locked {
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     background: silver;
-    border-radius: 25px;
-    margin: 30px auto 10px; /* Lowering the lock position */
+    border-radius: 30px;
+    position: absolute;
+    top: 30px; /* Lowered so it doesn't overlap text */
+    left: 50%;
+    transform: translateX(-50%);
     transition: transform 0.3s ease-in-out;
 }
 
@@ -50,8 +55,8 @@ body {
     background: gray;
     border-radius: 50%;
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 20px;
+    right: 20px;
     transition: background 0.3s;
 }
 
@@ -61,6 +66,14 @@ body {
 
 .incorrect .indicator {
     background: red;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    justify-content: center;
+    margin-top: 80px; /* Adjusted to fit correctly */
 }
 
 .tile {
@@ -74,7 +87,6 @@ body {
     border-radius: 5px;
     cursor: pointer;
     text-align: center;
-    line-height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
